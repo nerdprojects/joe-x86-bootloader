@@ -1,7 +1,7 @@
 # Joe Bootloader
 This is a x86 bootloader I created to play around with x86 assembly, BIOS and real mode.
 It does not really bootload anything, instead it displays an animation of a pixel character named Joe.
-<img src="https://raw.githubusercontent.com/nerdprojects/joe-x86-bootloader/main/joe-x86-bootloader.png"/>
+<img src="https://raw.githubusercontent.com/nerdprojects/joe-x86-bootloader/main/joe-x86-bootloader.gif"/>
 
 You can compile it with nasm:
 
@@ -15,7 +15,7 @@ You can build a bootable floppy out of it and run it on a virtual machine:
     dd if=joe of=floppy.img conv=notrunc
 
 Or you can prank someone, by overwriting the boot sector on his harddrive ;-).
-But I guess this will only work with MBR disks and not with UEFI:
+But I guess this will only work with MBR disks and not with UEFI/GPT:
 
     dd if=/dev/sda of=backup.bin count=278 bs=1
     dd of=/dev/sda if=joe count=278 bs=1 conv=notrunc
