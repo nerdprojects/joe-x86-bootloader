@@ -24,7 +24,7 @@ draw_bg   mov ax,0xa000      ; load video memory segment into ax
                              ; i guess i came up with this number by calculating the optical center of the screen
                              ; offsetted by the half of the image data... not sure anymore about it ;-)
                              ; we use register dx for that value, because we change it over time to move the character
-          mov di,dx
+          mov di,dx          ; load the draw position pointer into di
 
 draw      mov ax,0x7c0       ; the BIOS loads this program, at memory location 0x7c00
                              ; we use 0x7c0 here as a segment value, to be able to access our image data later on
